@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Droid Sans Mono', monospace;
+            background-color: rgba(176, 176, 176, 0.963);
+            margin: 0;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: white;
+        }
+        .catalog {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .product {
+            background-color: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .product-price {
+            margin: 10px 0;
+            font-size: 1.2em;
+            color: #838889;
+        }
+        .quantity-control {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .quantity-control input {
+            width: 40px;
+            text-align: center;
+        }
+        input[type="submit"] {
+            background-color: rgba(251, 246, 246, 0.963);
+            color: #838889;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #c0c2c3;
+        }
+        .result {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .result {
+            background-color: #ccc ;
+            padding: 20px;
+            margin-top: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        h3 {
+            color: #838889;
+        }
+
+        .result p {
+            color: #838889;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(176, 176, 176, 0.963);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 18px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #838889;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <a href="MauRa Clothing.html" class="back-button">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <h2>Shopping Cart</h2>
+
+    <div class="catalog">
+        <div class="product" data-price="100000">
+            <img src="https://i.pinimg.com/736x/c3/fa/7d/c3fa7d3b6f5162b17a9f3e05a4e9d0ed.jpg" alt="TOP 1">
+            <p>TOP 1</p>
+            <p class="product-price">Rp100,000</p>
+            <div class="quantity-control">
+                <button class="minus">-</button>
+                <input type="number" value="0" min="0" class="quantity">
+                <button class="plus">+</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="150000">
+            <img src="https://i.pinimg.com/736x/9c/d1/84/9cd1845ea19c046cba0a3fa1728d63ad.jpg" alt="TOP 2">
+            <p>TOP 2</p>
+            <p class="product-price">Rp150,000</p>
+            <div class="quantity-control">
+                <button class="minus">-</button>
+                <input type="number" value="0" min="0" class="quantity">
+                <button class="plus">+</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="180000">
+            <img src="https://i.pinimg.com/736x/f7/f6/38/f7f638c1a0e4c40160e1aa5e6de520f4.jpg" alt="TOP 3">
+            <p>TOP 3</p>
+            <p class="product-price">Rp180,000</p>
+            <div class="quantity-control">
+                <button class="minus">-</button>
+                <input type="number" value="0" min="0" class="quantity">
+                <button class="plus">+</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="300000">
+            <img src="https://i.pinimg.com/736x/51/4b/da/514bda282447dfe1800fe8404ecd643f.jpg" alt="TOP 4">
+            <p>TOP 4</p>
+            <p class="product-price">Rp300,000</p>
+            <div class="quantity-control">
+                <button class="minus">-</button>
+                <input type="number" value="0" min="0" class="quantity">
+                <button class="plus">+</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="120000">
+            <img src="https://i.pinimg.com/736x/97/a9/9c/97a99cc10e98a9c47e2d51f17b865080.jpg" alt="BOTTOM 1">
+            <p>BOTTOM 1</p>
+            <p class="product-price">Rp120,000</p>
+            <div class="quantity-control">
+                <button class="minus">-</button>
+                <input type="number" value="0" min="0" class="quantity">
+                <button class="plus">+</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="170000">
+            <img src="https://i.pinimg.com/736x/20/9e/d5/209ed511c9114e23e9330f352a0c1a69.jpg" alt="BOTTOM 2">
+            <p>BOTTOM 2</p>
+            <p class="product-price">Rp170,000</p>
+            <div class="quantity-control">
+                <button class="minus">-</button>
+                <input type="number" value="0" min="0" class="quantity">
+                <button class="plus">+</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="250000">
+            <img src="https://i.pinimg.com/736x/61/aa/d3/61aad35a4e3ded066ad9a6ad014bf2c3.jpg" alt="BOTTOM 3">
+            <p>BOTTOM 3</p>
+            <p class="product-price">Rp250,000</p>
+            <div class="quantity-control">
+                <button class="minus">-</button>
+                <input type="number" value="0" min="0" class="quantity">
+                <button class="plus">+</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="280000">
+            <img src="https://i.pinimg.com/736x/50/54/b4/5054b446b4685dd6d5e0face3c9fa61c.jpg" alt="BOTTOM 4">
+            <p>BOTTOM 4</p>
+            <p class="product-price">Rp280,000</p>
+            <div class="quantity-control">
+                <button class="minus">-</button>
+                <input type="number" value="0" min="0" class="quantity">
+                <button class="plus">+</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="250000">
+            <img src="https://i.pinimg.com/736x/04/03/2d/04032d7c1d4c7f7b73574ccfc40d6b93.jpg" alt="SHOES 1">
+            <p>SHOES 1</p>
+            <p class="product-price">Rp250,000</p>
+            <div class="quantity-control">
+                <button class="minus">-</button>
+                <input type="number" value="0" min="0" class="quantity">
+                <button class="plus">+</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="310000">
+            <img src="https://i.pinimg.com/736x/87/e3/d6/87e3d687d163835a75eb39806d89dc0e.jpg" alt="SHOES 2">
+            <p>SHOES 2</p>
+            <p class="product-price">Rp310,000</p>
+            <div class="quantity-control">
+                <button class="minus">-</button>
+                <input type="number" value="0" min="0" class="quantity">
+                <button class="plus">+</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="370000">
+            <img src="https://i.pinimg.com/736x/84/a5/ec/84a5ecc3b3bbbb166e054d61f29e54d3.jpg" alt="SHOES 3">
+            <p>SHOES 3</p>
+            <p class="product-price">Rp370,000</p>
+            <div class="quantity-control">
+                <button class="minus">-</button>
+                <input type="number" value="0" min="0" class="quantity">
+                <button class="plus">+</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="425000">
+            <img src="https://i.pinimg.com/736x/fa/e1/8f/fae18f93e9a665f5e223c4489e6bca76.jpg" alt="SHOES 4">
+            <p>SHOES 4</p>
+            <p class="product-price">Rp425,000</p>
+            <div class="quantity-control">
+                <button class="minus">-</button>
+                <input type="number" value="0" min="0" class="quantity">
+                <button class="plus">+</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="100000">
+            <img src="https://i.pinimg.com/736x/94/d7/15/94d71568224746d616337881a30a6265.jpg" alt="ACC 1">
+            <p>ACC 1</p> 
+            <p class="product-price">Rp100,000</p>
+            <div class="quantity-control">
+                <button class="minus">-</button>
+                <input type="number" value="0" min="0" class="quantity">
+                <button class="plus">+</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="150000">
+            <img src="https://i.pinimg.com/736x/05/db/d8/05dbd85d62cada8b6a3eca03d64647fb.jpg" alt="ACC 2">
+            <p>ACC 2</p> 
+            <p class="product-price">Rp150,000</p>
+            <div class="quantity-control">
+                <button class="minus">-</button>
+                <input type="number" value="0" min="0" class="quantity">
+                <button class="plus">+</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="115000">
+            <img src="https://i.pinimg.com/736x/cc/06/4d/cc064d03cbb9b9b449267449ad3e4e7f.jpg" alt="ACC 3">
+            <p>ACC 3</p> 
+            <p class="product-price">Rp115,000</p>
+            <div class="quantity-control">
+                <button class="minus">-</button>
+                <input type="number" value="0" min="0" class="quantity">
+                <button class="plus">+</button>
+            </div>
+        </div>
+
+        <div class="product" data-price="120000">
+            <img src="https://i.pinimg.com/736x/96/6c/7c/966c7c8b581a2ff65aefb7e3186b1a76.jpg" alt="ACC 4">
+            <p>ACC 4</p> 
+            <p class="product-price">Rp120,000</p>
+            <div class="quantity-control">
+                <button class="minus">-</button>
+                <input type="number" value="0" min="0" class="quantity">
+                <button class="plus">+</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <input type="submit" value="Hitung Total" id="calculateBtn">
+
+    <div id="resultContainer"></div>
+
+    <script>
+        // Event listeners for the plus and minus buttons
+        document.querySelectorAll('.plus').forEach(button => {
+            button.addEventListener('click', function() {
+                let quantityInput = this.previousElementSibling;
+                quantityInput.value = parseInt(quantityInput.value) + 1;
+            });
+        });
+
+        document.querySelectorAll('.minus').forEach(button => {
+            button.addEventListener('click', function() {
+                let quantityInput = this.nextElementSibling;
+                if (parseInt(quantityInput.value) > 0) {
+                    quantityInput.value = parseInt(quantityInput.value) - 1;
+                }
+            });
+        });
+
+        // Calculate total when button is pressed
+        document.getElementById('calculateBtn').addEventListener('click', function() {
+            let products = document.querySelectorAll('.product');
+            let totalPrice = 0;
+            let totalQuantity = 0;
+
+            products.forEach(product => {
+                let price = parseInt(product.getAttribute('data-price'));
+                let quantity = parseInt(product.querySelector('.quantity').value);
+
+                if (quantity > 0) {
+                    totalPrice += price * quantity;
+                    totalQuantity += quantity;
+                }
+            });
+
+            // Calculate discount
+            let discountPercentage = 0;
+            if (totalQuantity >= 10) {
+                discountPercentage = 20;
+            } else if (totalQuantity >= 5) {
+                discountPercentage = 15;
+            } else if (totalQuantity >= 3) {
+                discountPercentage = 10;
+            }
+
+            let discountAmount = (discountPercentage / 100) * totalPrice;
+            let finalPrice = totalPrice - discountAmount;
+
+            // Display result
+            let resultContainer = document.getElementById('resultContainer');
+            resultContainer.innerHTML = `
+                <div class="result">
+                    <h3>Total Harga</h3>
+                    <p>Rp${totalPrice.toLocaleString('id-ID')}</p>
+
+                    <h3>Diskon (${discountPercentage}%)</h3>
+                    <p>-Rp${discountAmount.toLocaleString('id-ID')}</p>
+
+                    <h3>Total Setelah Diskon</h3>
+                    <p><strong>Rp${finalPrice.toLocaleString('id-ID')}</strong></p>
+                </div>
+            `;
+            // Scroll otomatis ke bagian hasil
+            resultContainer.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+</html>
